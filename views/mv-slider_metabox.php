@@ -8,8 +8,7 @@
                 type="text" 
                 name="mv_slider_link_text" 
                 id="mv_slider_link_text" 
-                class="regular-text link-text"
-                value=""
+                class="regular-text link-text"                
                 required
             >
         </td>
@@ -23,8 +22,7 @@
                 type="url" 
                 name="mv_slider_link_url" 
                 id="mv_slider_link_url" 
-                class="regular-text link-url"
-                value=""
+                class="regular-text link-url"                
                 required
             >
         </td>
