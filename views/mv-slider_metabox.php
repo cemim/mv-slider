@@ -1,3 +1,9 @@
+<?php
+    // $meta = get_post_meta($post->ID);
+    // $meta['mv_slider_link_url'][0]; //outra forma
+    $link_text = get_post_meta($post->ID, 'mv_slider_link_text', true);
+    $link_url = get_post_meta($post->ID, 'mv_slider_link_url', true);
+?>
 <table class="form-table mv-slider-metabox"> 
     <tr>
         <th>
@@ -8,7 +14,8 @@
                 type="text" 
                 name="mv_slider_link_text" 
                 id="mv_slider_link_text" 
-                class="regular-text link-text"                
+                class="regular-text link-text"
+                value="<?= esc_html($link_text) ?? '' ?>"
                 required
             >
         </td>
@@ -22,7 +29,8 @@
                 type="url" 
                 name="mv_slider_link_url" 
                 id="mv_slider_link_url" 
-                class="regular-text link-url"                
+                class="regular-text link-url"
+                value="<?= esc_url($link_url) ?? '' ?>"
                 required
             >
         </td>
