@@ -67,7 +67,7 @@ if (!class_exists('MV_Slider_Post_Type')) {
 
         public function add_inner_meta_boxes($post )
         {
-            
+            require_once(MV_SLIDER_PATH . 'views/mv-slider_metabox.php');
         }
     }
 }
