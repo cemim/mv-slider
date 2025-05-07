@@ -73,6 +73,26 @@ if (!class_exists('MV_Slider_Post_Type')) {
 
         public function save_post($post_id)
         {
+            // Verificar token nonce
+            if (!isset($_POST['mv_slider_nonce']) || !wp_verify_nonce($_POST['mv_slider_nonce'], 'mv_slider_nonce')) {
+                return;
+            }
+
+            // Evitar auto Save
+            if (defined('DOING_AUTOSAVE') && DOING_AUTOSAVE) {
+                return;
+            }
+
+            // Verificar se a solicitação veio da Interface do CPT            
+            if (!isset($_POST['post_type']) || $_POST['post_type'] !== 'mv-slider') {
+                return;
+            }
+
+            // Verificar se o usuário pode editar páginas e posts
+            if(!current_user_can('edit_page', $post_id) ||  !current_user_can('edit_post', $post_id)) {
+                return;
+            }
+
             if (isset($_POST['action']) && $_POST['action'] == 'editpost') {
                 $old_link_text = get_post_meta($post_id, 'mv_slider_link_text', true); // mv_slider_link_text name no input
                 $new_link_text = sanitize_text_field($_POST['mv_slider_link_text']);
