@@ -49,7 +49,7 @@ if (!class_exists('MV_Slider_Post_Type')) {
                     //'hierarchical' => true, // Permite páginas com hierárquia, necessário 'page-attributes'
                     'hierarchical' => false,
                     'show_ui' => true,
-                    'show_in_menu' => true,
+                    'show_in_menu' => false,
                     'menu_position' => 5,
                     'show_in_admin_bar' => true, // Exibir em novo na barra de admin
                     'show_in_nav_menus' => true, // Permite adicionar ao menu, caso nãoapareçã, habilite em opções de tela
