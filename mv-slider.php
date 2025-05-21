@@ -47,6 +47,9 @@ if ( ! class_exists( 'MV_Slider' ) ) {
 
             require_once(MV_SLIDER_PATH . 'class.mv-slider-settings.php');
             $MV_Slider_Settings = new MV_Slider_Settings();
+
+            require(MV_SLIDER_PATH . 'views/class.mv-slider-shortcode.php');
+            $MV_Slider_Shortcode = new MV_Slider_Shortcode();
         }
 
         public function define_constants()
@@ -116,7 +119,7 @@ if ( ! class_exists( 'MV_Slider' ) ) {
 
             settings_errors('mv_slider_options');
 
-            require(MV_SLIDER_PATH . 'views/settings-page.php');
+            require(MV_SLIDER_PATH . 'views/settings-page.php');            
         }
 
     }
