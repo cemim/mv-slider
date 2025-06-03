@@ -48,7 +48,7 @@ if ( ! class_exists( 'MV_Slider' ) ) {
             require_once(MV_SLIDER_PATH . 'class.mv-slider-settings.php');
             $MV_Slider_Settings = new MV_Slider_Settings();
 
-            require(MV_SLIDER_PATH . 'views/class.mv-slider-shortcode.php');
+            require(MV_SLIDER_PATH . 'shortcodes/class.mv-slider-shortcode.php');
             $MV_Slider_Shortcode = new MV_Slider_Shortcode();
         }
 
