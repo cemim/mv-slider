@@ -25,7 +25,15 @@ if (! class_exists('MV_Slider_Shortcode')) {
             if(!empty($id)){
                 // Cria um array com os ids e usa a função absint em cada item do array
                 $id = array_map('absint', explode(',', $id));
-            }
+            }            
+
+            /**
+             * Como o shortcode é um filtro ele precisa retornar algo
+             * Para retornar a saída HTML enviamos para um buffer interno e depois despejar esse HTML
+             */
+            ob_start();
+            require(MV_SLIDER_PATH . 'views/mv-slider_shortcode.php');
+            return ob_get_clean();            
         }
     }
 }
