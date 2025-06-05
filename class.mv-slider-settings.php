@@ -78,7 +78,7 @@ if (! class_exists('MV_Slider_Settings')) {
 
         public function mv_slider_shortcode_callback()
         {
-            echo "<span>Use the shortcode [mv_slider] to display the slider in any page/post/widget</span>";
+            echo "<span>Use the shortcode [mv_slider] to display the slider in any page/post/widget <br> Ex: [mv_slider id='1,2,3' orderby='rand']Title[/mv_slider]</span>";
         }
 
         public function mv_slider_title_callback($args)
