@@ -30,6 +30,9 @@ You should have received a copy of the GNU General Public License
 along with MV Slider. If not, see https://www.gnu.org/licenses/gpl-2.0.html.
 */
 
+// Para tradução foi usados o prograna https://poedit.net/
+// Criar o arquivo POT em branco https://github.com/fxbenard/Blank-Wordpress-Pot
+
 if ( ! defined( 'ABSPATH' ) ) {    
 	exit;
 }
@@ -38,6 +41,8 @@ if ( ! class_exists( 'MV_Slider' ) ) {
 	class MV_Slider{
         function __construct(){
             $this->define_constants();
+
+            $this->load_textdomain();
 
             require_once( MV_SLIDER_PATH .'functions/functions.php');
 
@@ -80,10 +85,19 @@ if ( ! class_exists( 'MV_Slider' ) ) {
             
         }
 
+        public function load_textdomain()
+        {
+            load_plugin_textdomain(
+                'mv-slider',
+                false,
+                dirname(plugin_basename(__FILE__)) .'/languages/'
+            );
+        }
+
         public function add_menu()
         {
             add_menu_page(
-                'MV Slider Options',
+                esc_html__('MV Slider Options', 'mv-slider'),
                 'MV Slider',
                 'manage_options',
                 'mv_slider_admin',
@@ -93,8 +107,8 @@ if ( ! class_exists( 'MV_Slider' ) ) {
 
             add_submenu_page(
                 'mv_slider_admin',
-                'Manage Slides',
-                'Manage Slides',
+                esc_html__('Manage Slides', 'mv-slider'),
+                esc_html__('Manage Slides', 'mv-slider'),
                 'manage_options',
                 'edit.php?post_type=mv-slider', // Abre no submenu uma página já existente
                 null,
@@ -103,8 +117,8 @@ if ( ! class_exists( 'MV_Slider' ) ) {
 
             add_submenu_page(
                 'mv_slider_admin',
-                'Add New Slide',
-                'Add New Slide',
+                esc_html__('Add New Slide', 'mv-slider'),
+                esc_html__('Add New Slide', 'mv-slider'),
                 'manage_options',
                 'post-new.php?post_type=mv-slider', // Abre no submenu uma página já existente
                 null,
@@ -119,7 +133,7 @@ if ( ! class_exists( 'MV_Slider' ) ) {
             }
 
             if (isset($_GET['settings-updated'])) {
-                add_settings_error( 'mv_slider_options', 'mv_slider_message', 'Settings Saved', 'success' );
+                add_settings_error( 'mv_slider_options', 'mv_slider_message', esc_html__('Settings Saved', 'mv-slider'), 'success' );
             }
 
             settings_errors('mv_slider_options');

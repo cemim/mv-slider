@@ -39,11 +39,11 @@ if (!class_exists('MV_Slider_Post_Type')) {
             register_post_type(
                 post_type: 'mv-slider',
                 args: array(
-                    'label' => 'Slider',
-                    'description' => 'Sliders',
+                    'label' => esc_html__('Slider', 'mv-slider'),
+                    'description' => esc_html__('Sliders', 'mv-slider'),
                     'labels' => array(
-                        'name' => 'Sliders',
-                        'singular_name' => 'Slider'),
+                        'name' => esc_html__('Sliders', 'mv-slider'),
+                        'singular_name' => esc_html__('Slider', 'mv-slider')),
                     'public' => true,
                     'supports' => array('title', 'editor', 'thumbnail'/*, 'page-attributes'*/),
                     //'hierarchical' => true, // Permite páginas com hierárquia, necessário 'page-attributes'
@@ -67,7 +67,7 @@ if (!class_exists('MV_Slider_Post_Type')) {
         {
             add_meta_box(
                 'mv_slider_meta_box',
-                'Link Options',
+                esc_html__('Link Options', 'mv-slider'),
                 array($this, 'add_inner_meta_boxes'),
                 'mv-slider', // Chave CPT
                 'normal',
@@ -109,7 +109,7 @@ if (!class_exists('MV_Slider_Post_Type')) {
                 $new_link_url = sanitize_text_field($_POST['mv_slider_link_url']);
 
                 if (empty($new_link_text)) {
-                    update_post_meta($post_id, 'mv_slider_link_text', 'Add some text');
+                    update_post_meta($post_id, 'mv_slider_link_text', esc_html__('Add some text', 'mv-slider'));
                 } else {
                     update_post_meta($post_id, 'mv_slider_link_text', $new_link_text, $old_link_text);
                 }

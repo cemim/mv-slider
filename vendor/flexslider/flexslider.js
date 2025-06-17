@@ -3,7 +3,7 @@ jQuery(window).load(function () {
         animation: "slide",
         touch: true,
         directionNav: false,
-        smoothHeight: true,
+        smoothHeight: false,
         controlNav: SLIDER_OPTIONS.controlNav,
     });
 });
